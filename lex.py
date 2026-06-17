@@ -1,9 +1,3 @@
 import ply.lex as lex
 
-reserved = {
-    'LOAD': 'LOAD',
-    'TRAIN': 'TRAIN', 
-    'EVALUATE': 'EVALUATE',
-    'PREDICT': 'PREDICT'
-}
-
+reserved = {k: k for k in ('LOAD', 'TRAIN', 'EVALUATE', 'PREDICT')}
