@@ -1,7 +1,9 @@
 import ply.lex as lex
 
-# Tokens
-tokens = (
-    'NUMBER', 'PLUS',
-)
+reserved = {
+    'LOAD': 'LOAD',
+    'TRAIN': 'TRAIN', 
+    'EVALUATE': 'EVALUATE',
+    'PREDICT': 'PREDICT'
+}
 
