@@ -35,3 +35,18 @@ PREDICT test.csv
 3. Implement the parser in `parser.py` using PLY
 4. Wire up ML execution in `main.py`
 5. Push to GitHub
+
+---
+
+# Implementation: 
+
+1. Design Phase: 
+
+Our DSL should contain: 
+
+```
+LOAD data/fake_data.csv
+TRAIN LinearRegression
+EVALUATE accuracy
+PREDICT data/test.csv
+```
