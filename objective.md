@@ -4,15 +4,6 @@
 
 Build a **ML Pipeline DSL** — a mini-language where someone can write simple commands in a `.dsl` file, and your Python program reads, parses, and **actually executes** those commands as a real ML pipeline.
 
-## Example DSL syntax
-
-```
-LOAD data/fake_data.csv
-TRAIN LinearRegression
-EVALUATE accuracy
-PREDICT test.csv
-```
-
 ## What the code needs to do
 
 1. **`lex.py`** — tokenize commands (recognize `LOAD`, `TRAIN`, filenames, model names, etc.)
