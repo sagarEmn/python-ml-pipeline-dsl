@@ -23,6 +23,7 @@ def t_NEWLINE(t):
 
 def t_VALUE(t):
     r'[A-Za-z0-9_./\-]+'
+    # token's type is extracted from reserved list else replaced with VALUE
     t.type = reserved.get(t.value.upper(), 'VALUE')
     return t
 
