@@ -21,3 +21,5 @@ def p_person(p):
         raise SyntaxError(f"Syntax error at '{p.value}' line {p.lineno}")
     else: 
         raise SyntaxError("Syntax error at EOF")
+    
+parser = yacc.yacc()
