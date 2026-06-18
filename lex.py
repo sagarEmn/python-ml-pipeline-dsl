@@ -8,6 +8,7 @@ tokens = [
 
 t_ignore = ' \t'
 
+# Match a comment line and ignore it through 'pass'
 def t_COMMENT(t):
     r'\#.*'
     pass
@@ -15,7 +16,8 @@ def t_COMMENT(t):
 
 def t_NEWLINE(t):
     r'\n+'
-    t.lexer.lineno += len(t.value)
+    # lexer object and lineno attribute is available through lex imported as ply.lex
+    t.lexer.lineno += len(t.value) 
     return t
 
 
