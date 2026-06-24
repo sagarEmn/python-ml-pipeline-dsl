@@ -36,3 +36,8 @@ def t_error(t):
 
 
 lexer = lex.lex()
+
+if __name__ == "__main__":
+    lexer.input("LOAD data.csv")
+    for token in lexer:
+        print(token)
