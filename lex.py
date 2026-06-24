@@ -1,30 +1,33 @@
 import ply.lex as lex
 
-reserved = {k: k for k in ('LOAD', 'TRAIN', 'EVALUATE', 'PREDICT')}
+# Tuple
+reserved = {
+    k: k for k in ("LOAD", "SHOW", "DESCRIBE", "TARGET", "TRAIN", "EVALUATE", "PREDICT")
+}
 
-tokens = [
-    'VALUE', 'NEWLINE'
-] + list(reserved.values())
+tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
 
-t_ignore = ' \t'
+# t_ignore is a string to store space & tab space
+t_ignore = " \t"
+
 
 # Match a comment line and ignore it through 'pass'
 def t_COMMENT(t):
-    r'\#.*'
+    r"\#.*"
     pass
 
 
 def t_NEWLINE(t):
-    r'\n+'
+    r"\n+"
     # lexer object and lineno attribute is available through lex imported as ply.lex
-    t.lexer.lineno += len(t.value) 
+    t.lexer.lineno += len(t.value)
     return t
 
 
 def t_VALUE(t):
-    r'[A-Za-z0-9_./\-]+'
+    r"[A-Za-z0-9_./\-]+"
     # token's type is extracted from reserved list else replaced with VALUE
-    t.type = reserved.get(t.value.upper(), 'VALUE')
+    t.type = reserved.get(t.value.upper(), "VALUE")
     return t
 
 
