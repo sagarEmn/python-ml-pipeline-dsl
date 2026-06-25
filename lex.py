@@ -11,6 +11,8 @@ tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
 t_ignore = " \t"
 
 
+# Token Rule Functions: 
+
 # Match a comment line and ignore it through 'pass'
 def t_COMMENT(t):
     r"\#.*"
