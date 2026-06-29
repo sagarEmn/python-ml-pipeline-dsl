@@ -13,3 +13,14 @@ from dataclasses import dataclass
 class Program: 
     statements: list
 
+@dataclass
+class Command: 
+    name: str
+    arg: str | None = None
+
+# PLY (yacc) registers p_* functions as reduction callbacks and calls them during parsing
+# Although you're defining the function, PLY supplies these functions with the format: p_* as a ply function. 
+
+def p_program(p): 
+    "program : lines"
+    p[0] = Program(p[1])
