@@ -22,5 +22,5 @@ class Command:
 # Although you're defining the function, PLY supplies these functions with the format: p_* as a ply function. 
 
 def p_program(p): 
-    "program : lines"
+    "program : lines" # docstring for this function
     p[0] = Program(p[1])
