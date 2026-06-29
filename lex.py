@@ -1,6 +1,6 @@
 import ply.lex as lex
 
-# Tuple
+# Dictionary
 reserved = {
     k: k for k in ("LOAD", "SHOW", "DESCRIBE", "TARGET", "TRAIN", "EVALUATE", "PREDICT")
 }
