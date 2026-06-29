@@ -6,3 +6,10 @@ import ply.yacc as yacc
 # lexer: we'll handle this to parser.parse() so it knows how to tokenize input. 
 
 from lex import tokens, lexer
+
+from dataclasses import dataclass
+
+@dataclass
+class Program: 
+    statements: list
+
