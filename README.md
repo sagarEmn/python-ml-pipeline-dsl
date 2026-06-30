@@ -36,23 +36,3 @@ LOAD data/fake_data.csv
 SHOW head
 TARGET Salary
 ```
-
-**Presentation bullets** (short, speakable)
-
-- "Goal: show how a tiny DSL can control an ML pipeline with clear separation of concerns."
-- "Lexer (`lex.py`) — recognizes keywords and values."
-- "Parser (`parser.py`) — grammar written as `p_*` functions; produces an AST (list of `Command`s)."
-- "Runner (`main.py`) — receives AST, maintains `State`, and executes `LOAD`, `SHOW`, `TARGET`."
-- "Demo: run `python main.py pipeline.dsl` and show the output (load -> show -> target confirmation)."
-
-**Notes / next steps (optional)**
-
-- If you want to add training again, we can reintroduce a single `TRAIN` command that takes `Model:Target` or restore `TRAIN` + `PREDICT` with minimal dependencies.
-- Add a short slide deck or Jupyter notebook for a live walkthrough if you prefer.
-
----
-
-If you want, I can also:
-
-- Add a `Makefile` or small shell script for `./run-demo.sh` to simplify demo commands.
-- Generate a one-slide PDF with the bullets.
