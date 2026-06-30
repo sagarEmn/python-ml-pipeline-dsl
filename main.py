@@ -72,6 +72,7 @@ def set_target(state: State, column: str | None) -> None:
     if not column:
         raise ValueError("TARGET needs a column name")
     state.target = column
+    # for console debug purpose: 
     print(f"Target set to {column}")
 
 
@@ -151,7 +152,11 @@ def run(program: Program) -> None:
 
 
 def main() -> None:
+    # creates a command line argument parser
     argument_parser = argparse.ArgumentParser()
+
+    # add the arguments named dsl_file
+    # nargs allows the argument to be optional
     argument_parser.add_argument("dsl_file", nargs="?", default="pipeline.dsl")
     args = argument_parser.parse_args()
     script = resolve_path(args.dsl_file)
