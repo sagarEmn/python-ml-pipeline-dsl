@@ -61,12 +61,19 @@ def show(state: State, what: str | None) -> None:
 
 
 def describe(state: State) -> None:
+    # checks if state.data is loaded or not
     if state.data is None:
         raise ValueError("LOAD first")
+    
+    # calls pandas method
+    # .method() is 
     print(state.data.describe(include="all"))
 
 
+# takes in state param and col param
 def set_target(state: State, column: str | None) -> None:
+
+    # if data isn't loaded meaning, state object's data property is empty
     if state.data is None:
         raise ValueError("LOAD first")
     if not column:
