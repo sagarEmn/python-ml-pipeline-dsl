@@ -37,6 +37,7 @@ def resolve_path(path: str) -> Path:
     raise FileNotFoundError(path)
 
 
+# Store csv file in state object's data
 def load(state: State, path: str | None) -> None:
     if not path:
         raise ValueError("LOAD needs a file path")
@@ -44,9 +45,11 @@ def load(state: State, path: str | None) -> None:
     print(f"Loaded {path}")
 
 
+# Takes in state object
+# Takes in parameters of what, such as "head", "columns", "shape"
 def show(state: State, what: str | None) -> None:
     if state.data is None:
-        raise ValueError("LOAD first")
+        raise ValueError("LOAD first") # erorr to make the user load first showing the data
     if what == "head":
         print(state.data.head())
     elif what == "columns":
