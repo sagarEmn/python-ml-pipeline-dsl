@@ -65,29 +65,9 @@ def p_command_show(p):
     p[0] = Command("SHOW", p[2])
 
 
-def p_command_describe(p):
-    "command : DESCRIBE"
-    p[0] = Command("DESCRIBE")
-
-
 def p_command_target(p):
     "command : TARGET VALUE"
     p[0] = Command("TARGET", p[2])
-
-
-def p_command_train(p):
-    "command : TRAIN VALUE"
-    p[0] = Command("TRAIN", p[2])
-
-
-def p_command_evaluate(p):
-    "command : EVALUATE VALUE"
-    p[0] = Command("EVALUATE", p[2])
-
-
-def p_command_predict(p):
-    "command : PREDICT VALUE"
-    p[0] = Command("PREDICT", p[2])
 
 
 def p_error(p):
@@ -109,5 +89,5 @@ def parse(text: str):
 
 
 if __name__ == "__main__":
-    sample = """LOAD data/fake_data.csv\nSHOW head\nDESCRIBE\nTARGET Salary\nTRAIN LinearRegression\nEVALUATE r2\nPREDICT data/test.csv\n"""
+    sample = """LOAD data/fake_data.csv\nSHOW head\nTARGET Salary\n"""
     print(parse(sample))

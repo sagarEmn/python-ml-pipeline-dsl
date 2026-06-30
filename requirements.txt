@@ -1,3 +1,3 @@
 ply
 pandas
-scikit-learn
+# scikit-learn removed (not used in minimal DSL)

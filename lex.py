@@ -1,9 +1,7 @@
 import ply.lex as lex
 
 # Dictionary
-reserved = {
-    k: k for k in ("LOAD", "SHOW", "DESCRIBE", "TARGET", "TRAIN", "EVALUATE", "PREDICT")
-}
+reserved = {k: k for k in ("LOAD", "SHOW", "TARGET")}
 
 tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
 
@@ -11,7 +9,8 @@ tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
 t_ignore = " \t"
 
 
-# Token Rule Functions: 
+# Token Rule Functions:
+
 
 # Match a comment line and ignore it through 'pass'
 def t_COMMENT(t):
@@ -41,17 +40,17 @@ lexer = lex.lex()
 
 if __name__ == "__main__":
     tests = [
-        "LOAD data.csv", 
-        "TRAIN LinearRegression", 
-        "DESCRIBE", 
+        "LOAD data.csv",
+        "TRAIN LinearRegression",
+        "DESCRIBE",
         "SHOW head",
         "load data.csv",
-        "# Commment this is.", 
+        "# Commment this is.",
         "LOAD data/train.csv",
         "LOAD data.csv\nTRAIN LinearRegression",
-        "LOAD @data.csv"
+        "LOAD @data.csv",
     ]
-    for src in tests: 
+    for src in tests:
         print("\n INPUT: {src!r}")
         # !r passes the literal value with string instead of str()
         lexer.input(src)
