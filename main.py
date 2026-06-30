@@ -26,10 +26,12 @@ class State:
 
 
 def resolve_path(path: str) -> Path:
-    candidate = Path(path)
+    candidate = Path(path) # construct a path object from the input string
+    
+    # if a path exists, return it
     if candidate.is_file():
         return candidate
-    repo_path = Path(__file__).resolve().parent / path
+    repo_path = Path(__file__).resolve().parent / path # otherwise resolve the path relative to main.py
     if repo_path.is_file():
         return repo_path
     raise FileNotFoundError(path)
