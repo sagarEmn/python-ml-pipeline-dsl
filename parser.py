@@ -14,13 +14,14 @@ class Command:
     arg: str | None = None
 
 
+# PLY passes an object p into p_* function automatically
 def p_program(p):
     "program : lines"
     p[0] = Program(p[1])
 
 
 def p_lines_single(p):
-    "lines: line"
+    "lines : line"
     if p[1] is None:
         p[0] = []
     else:
