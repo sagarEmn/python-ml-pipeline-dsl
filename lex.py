@@ -1,6 +1,6 @@
 import ply.lex as lex
 
-# Dictionary
+# Dictionary: loop over the tuple
 reserved = {k: k for k in ("LOAD", "SHOW", "TARGET", "DESCRIBE")}
 
 tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
