@@ -39,6 +39,19 @@ def t_error(t):
 lexer = lex.lex()
 
 if __name__ == "__main__":
+
+    # print("tokens:", tokens)
+
+    # # print lexer:
+    # print("Lexer object:", lexer)
+
+    # # print lexer input: 
+    # lexer.input('show data.csv')
+    # for hehe in lexer:
+    #     print(hehe)
+
+
+    # Test cases
     tests = [
         "LOAD data.csv",
         "TRAIN LinearRegression",
@@ -51,7 +64,8 @@ if __name__ == "__main__":
         "LOAD @data.csv",
     ]
     for src in tests:
-        print("\n INPUT: {src!r}")
+        print("\nINPUT: ")
+        
         # !r passes the literal value with string instead of str()
         lexer.input(src)
         for token in lexer:
