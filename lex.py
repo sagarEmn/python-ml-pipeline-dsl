@@ -1,7 +1,7 @@
 import ply.lex as lex
 
 # Dictionary
-reserved = {k: k for k in ("LOAD", "SHOW", "TARGET")}
+reserved = {k: k for k in ("LOAD", "SHOW", "TARGET", "TARGET", "DESCRIBE")}
 
 tokens = ["VALUE", "NEWLINE"] + list(reserved.values())
 
@@ -45,11 +45,10 @@ if __name__ == "__main__":
     # # print lexer:
     # print("Lexer object:", lexer)
 
-    # # print lexer input: 
+    # # print lexer input:
     # lexer.input('show data.csv')
     # for hehe in lexer:
     #     print(hehe)
-
 
     # Test cases
     tests = [
@@ -61,12 +60,19 @@ if __name__ == "__main__":
         "# Commment this is.",
         "LOAD data/train.csv",
         "LOAD data.csv\nTRAIN LinearRegression",
+        
+        # error keyword @
         "LOAD @data.csv",
     ]
     for src in tests:
-        print("\nINPUT: ")
-        
-        # !r passes the literal value with string instead of str()
+        # !r shows the raw source with quotes/escapes (e.g. newlines) visible
+        print(f"\nINPUT: {src!r}")
+
         lexer.input(src)
-        for token in lexer:
-            print(token)
+        # a bad char raises SyntaxError from t_error; catch it so one
+        # failing input doesn't abort the rest of the test run
+        try:
+            for token in lexer:
+                print(token)
+        except SyntaxError as err:
+            print("LEX ERROR:", err)
