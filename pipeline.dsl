@@ -1,3 +1,4 @@
-LOAD data/fake_data.csv
+LOAD data/data.csv
 SHOW head
 TARGET Salary
+DESCRIBE
