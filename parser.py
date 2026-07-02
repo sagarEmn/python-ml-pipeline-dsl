@@ -71,4 +71,14 @@ def p_command_describe(p):
     p[0] = Command("DESCRIBE")
 
 
+def p_error(p):
+    if p is None:
+        raise SyntaxError("Syntax error at EOF")
+    raise SyntaxError(f"Syntax error at {p.value!r} on line {p.lineno}")
+
+
 parser = yacc.yacc()
+
+
+if __name__ == "__main__":
+    print("Hello there, you're running the file directly")
