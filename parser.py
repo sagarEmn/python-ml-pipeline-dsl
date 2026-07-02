@@ -71,6 +71,9 @@ def p_command_describe(p):
     p[0] = Command("DESCRIBE")
 
 
+# p_error is for missing command values
+
+
 def p_error(p):
     if p is None:
         raise SyntaxError("Syntax error at EOF")
