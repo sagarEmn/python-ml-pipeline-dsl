@@ -14,6 +14,9 @@ class Command:
     arg: str | None = None
 
 
+# CFG Functions:
+
+
 # PLY passes an object p into p_* function automatically
 def p_program(p):
     "program : lines"
@@ -44,3 +47,28 @@ def p_line_blank(p):
     "line : NEWLINE"
     p[0] = None
 
+
+# Grammar Rule for each commands:
+
+
+def p_command_load(p):
+    "command : LOAD VALUE"
+    p[0] = Command("LOAD", p[2])
+
+
+def p_command_show(p):
+    "command : SHOW VALUE"
+    p[0] = Command("SHOW", p[2])
+
+
+def p_command_target(p):
+    "command : TARGET VALUE"
+    p[0] = Command("TARGET", p[2])
+
+
+def p_command_describe(p):
+    "command : DESCRIBE"
+    p[0] = Command("DESCRIBE")
+
+
+parser = yacc.yacc()
