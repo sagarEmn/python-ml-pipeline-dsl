@@ -58,7 +58,17 @@ def p_command_load(p):
 
 def p_command_show(p):
     "command : SHOW VALUE"
+    print("BEFORE p_command_show:")
+    print("p[0]:", p[0])
+    print("p[1]:", p[1])
+    print("p[2]:", p[2])
+
     p[0] = Command("SHOW", p[2])
+
+    print("AFTER p_command_show:")
+    print("p[0]:", p[0])
+    print("p[1]:", p[1])
+    print("p[2]:", p[2])
 
 
 def p_command_target(p):
